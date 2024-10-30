@@ -1,0 +1,68 @@
+<div class="pt-28 min-h-[87vh] flex justify-center">
+  <div
+    class="bg-secondary flex flex-col items-center rounded-sm md:mx-16 mx-8 p-8 max-w-[900px] w-full h-min"
+  >
+    <h3
+      class="font-montserrat font-normal text-xl md:text-3xl text-center text-white"
+    >
+      Formulario de contacto
+    </h3>
+    <img src="assets/casca/icon.png" class="lg:w-24 w-16" />
+    <form
+      #contactForm="ngForm"
+      (ngSubmit)="sendEmail(contactForm)"
+      class="w-full"
+    >
+      <div class="grid md:grid-cols-2 md:gap-8 gap-4 w-full">
+        <div class="grid gap-4">
+          @for(input of inputs; track $index){
+          <div class="min-w-full">
+            <p class="font-montserrat text-white">{{ input.label }}</p>
+            <input
+              class="min-w-full rounded-md bg-white p-[4px]"
+              type="text"
+              [(ngModel)]="input.value"
+              [name]="input.label"
+              required
+            />
+          </div>
+          }
+        </div>
+        <div>
+          <p class="font-montserrat text-white">Mensaje</p>
+          <textarea
+            class="min-w-full min-h-[85%] rounded-md bg-white p-[4px]"
+            [(ngModel)]="message"
+            name="message"
+            required
+          ></textarea>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center justify-center w-full">
+        <button
+          class="text-white px-12 py-2 rounded-md"
+          type="submit"
+          [class]="
+            inputs[0].value === '' ||
+            inputs[1].value === '' ||
+            inputs[2].value === '' ||
+            message === ''
+              ? 'bg-gray-300 cursor-default'
+              : 'bg-primary hover:bg-primary-hover cursor-pointer'
+          "
+          [disabled]="
+            inputs[0].value === '' ||
+            inputs[1].value === '' ||
+            inputs[2].value === '' ||
+            message === ''
+          "
+        >
+          ENVIAR
+        </button>
+        @if(alert){
+        <app-alert [type]="alert.type" [message]="alert.message" />
+        }
+      </div>
+    </form>
+  </div>
+</div>

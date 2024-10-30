@@ -1,0 +1,22 @@
+<div class="relative overflow-hidden">
+  <div
+    class="flex gap-6 pb-8 overflow-x-auto scroll-smooth hide-scrollbar"
+    (scroll)="onScroll($event)"
+    #scrollContainer
+  >
+    @for(card of servicesList; track $index){
+    <div class="lg:max-w-1/5 sm:max-w-1/3 sm:min-w-[300px] min-w-[70%] w-[70%]">
+      <app-card [objectCard]="card"></app-card>
+    </div>
+    }
+  </div>
+
+  <div
+    class="absolute lg:hidden bottom-0 left-0 h-2 bg-gray-200 rounded-full w-full"
+  >
+    <div
+      class="bg-primary h-full rounded-full"
+      [ngStyle]="{ width: scrollProgress + '%' }"
+    ></div>
+  </div>
+</div>

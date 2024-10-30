@@ -1,0 +1,10 @@
+<div class="w-full py-10">
+  <div class="h-[1px] bg-secondary"></div>
+  <div class="flex justify-center items-center gap-4 pt-6">
+    @for(icon of icons; track $index){
+    <a [href]="icon.url" target="_blank" class="cursor-pointer">
+      <img [src]="icon.name" alt="Icono" class="icon-class" />
+    </a>
+    }
+  </div>
+</div>
