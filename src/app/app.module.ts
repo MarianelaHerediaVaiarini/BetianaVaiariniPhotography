@@ -13,9 +13,10 @@ import { BabyModule } from './components/baby/baby.module';
 import { KidsModule } from './components/kids/kids.module';
 import { FamilyModule } from './components/family/family.module';
 import { MaternityModule } from './components/maternity/maternity.module';
+import { AboutMeComponent } from './components/about-me/about-me.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AboutMeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

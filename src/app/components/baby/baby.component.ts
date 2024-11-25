@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { itemsBaby } from '../../utils/included-items.utils';
 
 @Component({
   selector: 'app-baby',
@@ -10,4 +11,5 @@ export class BabyComponent {
     'kids/image2.jpg',
     'kids/image3.jpg',
   ];
+  protected includedItems: string[]= itemsBaby
 }
